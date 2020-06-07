@@ -1,20 +1,30 @@
+using NumberSortingAPI.Services.Utilities;
+using NumberSortingAPI.Storage;
+
 namespace NumberSortingAPI.Services
 {
     public class NumbersService : INumbersService
     {
+        private readonly IFileStorage _fileStorage;
+
+        public NumbersService(IFileStorage fileStorage)
+        {
+            _fileStorage = fileStorage;
+        }
+        
         public void SortNumbers(int[] unsortedNumbers)
         {
-            throw new System.NotImplementedException();
+            QuickSort.Sort(unsortedNumbers);
         }
 
         public int[] GetNumbers()
         {
-            throw new System.NotImplementedException();
+            return _fileStorage.GetSortedNumbers();
         }
 
         public void WriteNumbers(int[] sortedNumbers)
         {
-            throw new System.NotImplementedException();
+            _fileStorage.WriteSortedNumbers(sortedNumbers);
         }
     }
 }
