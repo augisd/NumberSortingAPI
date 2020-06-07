@@ -22,7 +22,7 @@ namespace NumberSortingAPI.Controllers
         
         // GET api/numbers
         [HttpGet]
-        public ActionResult<Numbers> Get()
+        public ActionResult Get()
         {
             try
             {
